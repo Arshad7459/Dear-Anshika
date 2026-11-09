@@ -573,6 +573,78 @@ function startLetterTypewriter() {
 }
 
 function openLetterModal() {
+ // ─── Letter ke time emotional song ───
+const letterSong = new Audio('assets/intro/emotional.mp3');
+letterSong.loop = true;
+letterSong.volume = 0.9;
+window.letterSong = letterSong;
+
+function switchSong(toLetter) {
+  const main = document.getElementById('intro-song');
+  if (toLetter) {
+    if (main) main.pause();
+    letterSong.muted = main ? main.muted : false;
+    letterSong.currentTime = 0;
+    const p = letterSong.play();
+    if (p && p.catch) p.catch(() => {});
+  } else {
+    letterSong.pause();
+    if (main) {
+      const p = main.play();
+      if (p && p.catch) p.catch(() => {});
+    }
+  }
+}
+
+function openLetterModal() {
+   // ─── Letter ke time emotional song ───
+const letterSong = new Audio('assets/intro/emotional.mp3');
+letterSong.loop = true;
+letterSong.volume = 0.9;
+window.letterSong = letterSong;
+
+function switchSong(toLetter) {
+  const main = document.getElementById('intro-song');
+  if (toLetter) {
+    if (main) main.pause();
+    letterSong.muted = main ? main.muted : false;
+    letterSong.currentTime = 0;
+    const p = letterSong.play();
+    if (p && p.catch) p.catch(() => {});
+  } else {
+    letterSong.pause();
+    if (main) {
+      const p = main.play();
+      if (p && p.catch) p.catch(() => {});
+    }
+  }
+}
+
+function openLetterModal() {
+   // ─── Letter ke time emotional song ───
+const letterSong = new Audio('assets/intro/emotional.mp3');
+letterSong.loop = true;
+letterSong.volume = 0.9;
+window.letterSong = letterSong;
+
+function switchSong(toLetter) {
+  const main = document.getElementById('intro-song');
+  if (toLetter) {
+    if (main) main.pause();
+    letterSong.muted = main ? main.muted : false;
+    letterSong.currentTime = 0;
+    const p = letterSong.play();
+    if (p && p.catch) p.catch(() => {});
+  } else {
+    letterSong.pause();
+    if (main) {
+      const p = main.play();
+      if (p && p.catch) p.catch(() => {});
+    }
+  }
+}
+
+function openLetterModal() {
   const modal = document.getElementById('letter-modal');
   if (modal) {
     modal.classList.remove('hidden');
@@ -582,6 +654,7 @@ function openLetterModal() {
       void card.offsetWidth;
       card.classList.add('animate-letter');
     }
+    switchSong(true);
     // Launch dynamic live typewriter typing
     startLetterTypewriter();
   }
@@ -595,8 +668,9 @@ function closeLetterModal() {
   isLetterTyping = false;
   const modal = document.getElementById('letter-modal');
   if (modal) modal.classList.add('hidden');
+  switchSong(false);
 }
-
+ 
 function handleLetterOverlayClick(e) {
   if (e.target.id === 'letter-modal' || e.target.classList.contains('letter-bg-backdrop')) {
     closeLetterModal();
